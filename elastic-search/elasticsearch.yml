@@ -1,0 +1,12 @@
+bootstrap.memory_lock: false
+cluster.name: elasticsearch
+http.port: 9200
+node.data: true
+node.ingest: true
+node.master: true
+node.name: GGNS1LTW4D
+path.data: C:\Users\E01835\Desktop\Yashwanth\shopizer\elastic-search
+path.logs: C:\Users\E01835\Desktop\Yashwanth\shopizer\elastic-search
+transport.tcp.port: 9300
+xpack.license.self_generated.type: basic
+xpack.security.enabled: false

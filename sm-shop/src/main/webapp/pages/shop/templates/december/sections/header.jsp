@@ -5,74 +5,78 @@ response.setHeader("Pragma","no-cache");
 response.setDateHeader ("Expires", -1);
 %>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
-<%@ taglib uri="/WEB-INF/shopizer-tags.tld" prefix="sm" %>
-<%@ taglib uri="/WEB-INF/shopizer-functions.tld" prefix="display" %> 
- 
-<%@page contentType="text/html"%>
-<%@page pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+            <%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
+                <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+                    <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+                        <%@ taglib uri="/WEB-INF/shopizer-tags.tld" prefix="sm" %>
+                            <%@ taglib uri="/WEB-INF/shopizer-functions.tld" prefix="display" %>
 
-<script src="<c:url value="/resources/js/hogan.js" />"></script>
-<script src="<c:url value="/resources/templates/december/js/bloodhound.min.js" />"></script>
-<script src="<c:url value="/resources/templates/december/js/typeahead.bundle.min.js" />"></script>
+                                <%@page contentType="text/html"%>
+                                    <%@page pageEncoding="UTF-8"%>
+
+                                        <script src="<c:url value=" /resources/js/hogan.js " />"></script>
+                                        <script src="<c:url value=" /resources/templates/december/js/bloodhound.min.js " />"></script>
+                                        <script src="<c:url value=" /resources/templates/december/js/typeahead.bundle.min.js " />"></script>
 
 
-<!-- Customer account menu logged in customer will display in customerAccount placeholder -->
-<script type="text/html" id="customerLoggedInAccountTemplate">
-          		  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-user mr-5"></i><span class="hidden-xs"><s:message code="label.generic.welcome" text="Welcome" />&nbsp;<span>{{firstName}}</span><i class="fa fa-angle-down ml-5"></i></span> </a>
-		          <ul class="dropdown-menu w-150" role="menu">
-		            <li><a href="#" onClick="javascript:location.href='<c:url value="/shop/customer/dashboard.html" />';" href="#"><s:message code="label.customer.myaccount" text="My account"/></a></a>
-		            </li>
-		            <li><a href="#" onClick="javascript:location.href='<c:url value="/shop/customer/logout" />';" href="#"><s:message code="button.label.logout" text="Logout"/></a>
-		            </li>
-		         </ul>
-			 <script type="text/javascript">
-                (function($) {
-                    $('[data-hover="dropdown"]').dropdownHover()
-                })(jQuery);
-			</script>
-</script>
+                                        <!-- Customer account menu logged in customer will display in customerAccount placeholder -->
+                                        <script type="text/html" id="customerLoggedInAccountTemplate">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-user mr-5"></i><span class="hidden-xs"><s:message code="label.generic.welcome" text="Welcome" />&nbsp;<span>{{firstName}}</span><i class="fa fa-angle-down ml-5"></i></span>
+                                            </a>
+                                            <ul class="dropdown-menu w-150" role="menu">
+                                                <li>
+                                                    <a href="#" onClick="javascript:location.href='<c:url value=" /shop/customer/dashboard.html " />';" href="#"><s:message code="label.customer.myaccount" text="My account" /></a>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" onClick="javascript:location.href='<c:url value=" /shop/customer/logout " />';" href="#"><s:message code="button.label.logout" text="Logout" /></a>
+                                                </li>
+                                            </ul>
+                                            <script type="text/javascript">
+                                                (function($) {
+                                                    $('[data-hover="dropdown"]').dropdownHover()
+                                                })(jQuery);
+                                            </script>
+                                        </script>
 
-<!-- Customer account menu not logged in customer will display in customerAccount placeholder -->
-<script type="text/html" id="customerNotLoggedInAccountTemplate">
-          		  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-user mr-5"></i><span class="hidden-xs"><s:message code="label.customer.myaccount" text="My Account"/><i class="fa fa-angle-down ml-5"></i></span> </a>
-		          <ul class="dropdown-menu w-150" role="menu">
-						<li><a href="#" id="registerLink" onClick="javascript:location.href='<c:url value="/shop/customer/registration.html" />';"><s:message code="label.generic.register" text="Register" /></a></li>
-						<li><a href="#" id="registerLink" onClick="javascript:location.href='<c:url value="/shop/customer/customLogon.html" />';"><s:message code="button.label.signin" text="Signin" /></a></li>
-		         </ul>
-			 <script type="text/javascript">
-                (function($) {
-                    $('[data-hover="dropdown"]').dropdownHover()
-                })(jQuery);
-			</script>
-</script>
+                                        <!-- Customer account menu not logged in customer will display in customerAccount placeholder -->
+                                        <script type="text/html" id="customerNotLoggedInAccountTemplate">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-user mr-5"></i><span class="hidden-xs"><s:message code="label.customer.myaccount" text="My Account"/><i class="fa fa-angle-down ml-5"></i></span> </a>
+                                            <ul class="dropdown-menu w-150" role="menu">
+                                                <li>
+                                                    <a href="#" id="registerLink" onClick="javascript:location.href='<c:url value=" /shop/customer/registration.html " />';"><s:message code="label.generic.register" text="Register" /></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" id="registerLink" onClick="javascript:location.href='<c:url value=" /shop/customer/customLogon.html " />';"><s:message code="button.label.signin" text="Signin" /></a>
+                                                </li>
+                                            </ul>
+                                            <script type="text/javascript">
+                                                (function($) {
+                                                    $('[data-hover="dropdown"]').dropdownHover()
+                                                })(jQuery);
+                                            </script>
+                                        </script>
 
-<!-- Mini shopping cart JS template -->
-<script type="text/html" id="miniCartTemplate">
+                                        <!-- Mini shopping cart JS template -->
+                                        <script type="text/html" id="miniCartTemplate">
 
-                          {{#code}}
-            			  <li>
-              				<div class="cart-items">
-                				<ol class="items">
-                          {{#shoppingCartItems}}
-   
-                 			 			<li>
-                    					<div class="cart-img">
-										{{#image}}
-										<a href="#" class="product-image">
+                                            {{#code}}
+                                            <li>
+                                                <div class="cart-items">
+                                                    <ol class="items">
+                                                        {{#shoppingCartItems}}
+
+                                                        <li>
+                                                            <div class="cart-img">
+                                                                {{#image}}
+                                                                <a href="#" class="product-image">
 											<img class="img-responsive" src="<c:out value="${pageContext.servletContext.contextPath}" />{{image}}">
-										</a>
-										{{/image}}
-										{{^image}}
-											&nbsp
-										{{/image}}
-										</div>
-                    					<div class="product-details">
-                      					<div class="close-icon"> <button productid="{{productId}}" class="close removeProductIcon" onclick="removeItemFromMinicart('{{id}}')"><i class="fa fa-times-circle"></i></a></div>
+										</a> {{/image}} {{^image}} &nbsp {{/image}}
+                                                            </div>
+                                                            <div class="product-details">
+                                                                <div class="close-icon"> <button productid="{{productId}}" class="close removeProductIcon" onclick="removeItemFromMinicart('{{id}}')"><i class="fa fa-times-circle"></i></a></div>
                       					<p class="product-name"> <a href="#">{{name}}</a> </p> <strong>{{quantity}}</strong> x <span class="price text-primary">{{price}}</span> </div>
                     					<!-- end product-details -->
                   						</li>
@@ -112,6 +116,16 @@ response.setDateHeader ("Expires", -1);
 		{{#code}}
            {{quantity}}
 		{{/code}}
+</script>
+<!-- mini cart label button template -->
+<script type="text/html" id="miniCartSummarySmallTemplate">
+	<!-- empty cart and full summary subTotal & quantity -->
+	{{^code}}
+		0
+	{{/code}}
+	{{#code}}
+	   {{quantity}}
+	{{/code}}
 </script>
 
 <!-- dropdown js and hover -->
@@ -247,13 +261,40 @@ $(document).ready(function() {
 
   <!--=========-TOP_BAR============-->
   <nav class="topBar">
-    <div class="container">
+    <div class="container padding-0">
       <c:if test="${requestScope.CONFIGS['displayContactUs']==true}">
       <ul class="list-inline pull-left hidden-sm hidden-xs">
         <li><span class="text-primary"><s:message code="label.store.question" text="Have a question?" /></span>&nbsp;<abbr title="Phone"><s:message code="label.generic.phone" text="Phone" /></abbr>: <span itemprop="telephone"><c:out value="${requestScope.MERCHANT_STORE.storephone}"/></span></li>
         <c:if test="${requestScope.CONFIGS['testMode']==true}"><li><h4>[TEST MODE]</h4></li></c:if>
       </ul>
       </c:if>
+      <a href="javascript:void(0);" class="hide-xs"> 
+      			    <!-- logo -->
+      				<c:choose>
+									<c:when test="${requestScope.CONTENT['logo']!=null}">
+										<!-- A content logo exist -->
+										<sm:pageContent contentCode="logo"/>
+									</c:when>
+									<c:otherwise>
+										<c:choose>
+						                		<c:when test="${not empty requestScope.MERCHANT_STORE.storeLogo}">
+						                			<!--  use merchant store logo -->
+						                			<a class="grey store-name hide-xs" href="<c:url value="/shop/"/>">
+						                			<img class="logoImage" style="max-width:100px;" src="<sm:storeLogo/>"/>
+						                			</a>
+						                		</c:when>
+						                		<c:otherwise>
+						                			<!-- Use store name -->
+						                			<h1>
+						                			<a class="grey store-name" href="<c:url value="/shop/"/>">
+						                				<c:out value="${requestScope.MERCHANT_STORE.storename}"/>
+						                			</a>  
+						                			</h1>
+						                		</c:otherwise>
+						                </c:choose>
+									</c:otherwise>
+					</c:choose>
+      </a>
       <ul class="topBarNav pull-right">
 
 		<c:if test="${fn:length(requestScope.MERCHANT_STORE.languages) > 1}">
@@ -273,7 +314,9 @@ $(document).ready(function() {
         </c:if>
         <c:if test="${requestScope.CONFIGS['allowPurchaseItems'] == true}">	
         	<li class="dropdown">
-        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-shopping-basket mr-5"></i> <span class="hidden-xs">
+        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-shopping-basket mr-5"></i>
+        						<sup class="text-primary hidden-sm">(<span id="miniCartSummarySmall"></span>)</sup>
+        						<span class="hidden-xs">
                                 <s:message code="label.cart" text="Shopping cart"/><sup class="text-primary">(<span id="miniCartSummary"></span>)</sup>
                                 <i class="fa fa-angle-down ml-5"></i>
                             	</span>
@@ -290,9 +333,9 @@ $(document).ready(function() {
  <!--=========MIDDLE-TOP_BAR============-->
     
     <div class="middleBar">
-    <div class="container">
+    <div class="container padding-0">
   <div class="row display-table">
-    <div class="col-sm-5 vertical-align text-left">
+    <div class="col-sm-5 vertical-align text-left hidden-xs">
       <a href="javascript:void(0);"> 
       			    <!-- logo -->
       				<c:choose>
@@ -322,17 +365,18 @@ $(document).ready(function() {
       </a>
     </div>
     <!-- end col -->
-    <div class="col-sm-7 vertical-align text-center">
+    <div class="col-sm-7 vertical-align text-center margin-none">
 
 	  <c:if test="${requestScope.CONFIGS['displaySearchBox'] == true}">
       <form>
         <div class="row grid-space-1">
-          <div class="col-sm-9">
+          <div class="col-sm-9 col-xs-10 padding-0">
             <input type="text" name="q" id="searchField" class="form-control input-lg typeahead" placeholder="<s:message code="label.generic.search" text="Search"/>" value="">
          </div>
           <!-- end col -->
-          <div class="col-sm-3">
-            <input type="submit" class="btn btn-default btn-block btn-lg searchButton" value="<s:message code="label.generic.search" text="Search"/>">
+          <div class="col-sm-3 col-xs-2 padding-0 border">
+            <input type="submit" class="btn btn-default btn-block btn-lg searchButton hidden-xs" value="<s:message code="label.generic.search" text="Search"/>">
+            <i class="fa fa-search hide-xs" aria-hidden="true" class="hidden-xs" style="margin: 15px 0"></i>
          </div>
           <!-- end col -->
         </div>
@@ -361,76 +405,87 @@ $(document).ready(function() {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-              </button>             
-            </div>
-        
-            <!-- Collect the nav links,  -->
-            <div class="collapse navbar-collapse navbar-1" style="margin-top: 5px;">            
-              <ul class="nav navbar-nav">
-                <li><a href="<c:url value="/shop/"/>" class="dropdown-toggle"><s:message code="menu.home" text="Home"/></a></li>
-                <!-- languages -->
-                <c:if test="${fn:length(requestScope.MERCHANT_STORE.languages) > 1}">
-			    <li class="dropdown" class="langMenu">
-			            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"><s:message code="llabel.generic.language" text="Language"/> <i class="fa fa-angle-down ml-5"></i></a>
-			            <ul class="dropdown-menu dropdown-menu-left">
-			            <c:forEach items="${requestScope.MERCHANT_STORE.languages}" var="language">
-				            <c:if test="${requestScope.LANGUAGE.code ne language.code}">
-								<li><a href="<c:url value="/shop?locale=${language.code}"/>"><s:message code="lang.${language.code}" text="${language.code}" /></a></li>
-							</c:if>
-						</c:forEach>
-			           </ul>
-			    </li>
-		        </c:if>
-                <!-- Categories -->
-                <!-- mega menu style -->
-                <!--<li class="dropdown megaDropMenu">-->
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"><s:message code="menu.catalogue-products" text="Products"/> <i class="fa fa-angle-down ml-5"></i></a>
-                  <ul class="dropdown-menu row">
-                    <c:set var="code" value="${category.code}"/>
-                    <c:forEach items="${requestScope.TOP_CATEGORIES}" var="category">
-                    <c:if test="${category.visible}">
-                    <!-- mega menu style -->
-                    <!--<li class="col-sm-2 col-xs-12" style="margin-bottom:40px;">-->
-                    <li>
-                      <!-- mega menu style -->
-                      <!--<ul class="list-unstyled">-->
-                        <li class="<sm:activeLink linkCode="${category.description.friendlyUrl}" activeReturnCode="active"/>"><a href="<c:url value="/shop/category/${category.description.friendlyUrl}.html"/><sm:breadcrumbParam categoryId="${category.id}"/>"><c:out value="${category.description.name}"/></a>
-                        <c:if test="${fn:length(category.children)>0}">
-								<c:forEach items="${category.children}" var="child">
-									<c:if test="${child.visible}">
-									<li style="margin-bottom:-10px;"><a href="<c:url value="/shop/category/${child.description.friendlyUrl}.html"/><sm:breadcrumbParam categoryId="${child.id}"/>"><c:out value="${child.description.name}"/></a></li>
-									</c:if>		
-								</c:forEach>
-						</c:if>
-						</li>
-					  <!-- mega menu style -->
-                      <!--</ul>-->
-                    </li>
-                    </c:if>
-                    </c:forEach>
+              </button>
+                                                                </div>
 
-                    
-                  </ul>
-                </li>
-                  
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"><s:message code="label.page" text="Page"/> <i class="fa fa-angle-down ml-5"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-left">
-                    <c:forEach items="${requestScope.CONTENT_PAGE}" var="content">
-	                    <c:if test="${not content.content.linkToMenu}">
-	                    	<li><a href="<c:url value="/shop/pages/${content.seUrl}.html"/>" class="current">${content.name}</a></li>
-	                    </c:if>
-                    </c:forEach>
-                  </ul>
-                </li>
-                <c:forEach items="${requestScope.CONTENT_PAGE}" var="content">
-                	<c:if test="${content.content.linkToMenu}">
-               			<li><a href="<c:url value="/shop/pages/${content.seUrl}.html"/>" class="current">${content.name}</a></li>
-                	</c:if>
-                </c:forEach>
-              </ul>
-            </div><!-- /.navbar-collapse -->
-          </div>
-        </nav>
+                                                                <!-- Collect the nav links,  -->
+                                                                <div class="collapse navbar-collapse navbar-1" style="margin-top: 5px;">
+                                                                    <ul class="nav navbar-nav">
+                                                                        <li>
+                                                                            <a href="<c:url value=" /shop/ "/>" class="dropdown-toggle"><s:message code="menu.home" text="Home" /></a>
+                                                                        </li>
+                                                                        <!-- languages -->
+                                                                        <c:if test="${fn:length(requestScope.MERCHANT_STORE.languages) > 1}">
+                                                                            <li class="dropdown" class="langMenu">
+                                                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"><s:message code="llabel.generic.language" text="Language" /> <i class="fa fa-angle-down ml-5"></i></a>
+                                                                                <ul class="dropdown-menu dropdown-menu-left">
+                                                                                    <c:forEach items="${requestScope.MERCHANT_STORE.languages}" var="language">
+                                                                                        <c:if test="${requestScope.LANGUAGE.code ne language.code}">
+                                                                                            <li>
+                                                                                                <a href="<c:url value=" /shop?locale=${language.code} "/>"><s:message code="lang.${language.code}" text="${language.code}" /></a>
+                                                                                            </li>
+                                                                                        </c:if>
+                                                                                    </c:forEach>
+                                                                                </ul>
+                                                                            </li>
+                                                                        </c:if>
+                                                                        <!-- Categories -->
+                                                                        <!-- mega menu style -->
+                                                                        <!--<li class="dropdown megaDropMenu">-->
+                                                                        <li class="dropdown">
+                                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"><s:message code="menu.catalogue-products" text="Products" /> <i class="fa fa-angle-down ml-5"></i></a>
+                                                                            <ul class="dropdown-menu row">
+                                                                                <c:set var="code" value="${category.code}" />
+                                                                                <c:forEach items="${requestScope.TOP_CATEGORIES}" var="category">
+                                                                                    <c:if test="${category.visible}">
+                                                                                        <!-- mega menu style -->
+                                                                                        <!--<li class="col-sm-2 col-xs-12" style="margin-bottom:40px;">-->
+                                                                                        <li>
+                                                                                            <!-- mega menu style -->
+                                                                                            <!--<ul class="list-unstyled">-->
+                                                                                            <li class="<sm:activeLink linkCode=" ${category.description.friendlyUrl} " activeReturnCode="active "/>">
+                                                                                                <a href="<c:url value=" /shop/category/${category.description.friendlyUrl}.html "/><sm:breadcrumbParam categoryId="${category.id} "/>">
+                                                                                                    <c:out value="${category.description.name}" />
+                                                                                                </a>
+                                                                                                <c:if test="${fn:length(category.children)>0}">
+                                                                                                    <c:forEach items="${category.children}" var="child">
+                                                                                                        <c:if test="${child.visible}">
+                                                                                                            <li style="margin-bottom:-10px;">
+                                                                                                                <a href="<c:url value=" /shop/category/${child.description.friendlyUrl}.html "/><sm:breadcrumbParam categoryId="${child.id} "/>">
+                                                                                                                    <c:out value="${child.description.name}" />
+                                                                                                                </a>
+                                                                                                            </li>
+                                                                                                        </c:if>
+                                                                                                    </c:forEach>
+                                                                                                </c:if>
+                                                                                            </li>
+                                                                                            <!-- mega menu style -->
+                                                                                            <!--</ul>-->
+                                                                                        </li>
+                                                                                    </c:if>
+                                                                                </c:forEach>
 
+
+                                                                            </ul>
+                                                                        </li>
+
+                                                                        <li class="dropdown">
+                                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"><s:message code="label.page" text="Page" /> <i class="fa fa-angle-down ml-5"></i></a>
+                                                                            <ul class="dropdown-menu dropdown-menu-left">
+                                                                                <c:forEach items="${requestScope.CONTENT_PAGE}" var="content">
+                                                                                    <c:if test="${not content.content.linkToMenu}">
+                                                                                        <li><a href="<c:url value=" /shop/pages/${content.seUrl}.html "/>" class="current">${content.name}</a></li>
+                                                                                    </c:if>
+                                                                                </c:forEach>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <c:forEach items="${requestScope.CONTENT_PAGE}" var="content">
+                                                                            <c:if test="${content.content.linkToMenu}">
+                                                                                <li><a href="<c:url value=" /shop/pages/${content.seUrl}.html "/>" class="current">${content.name}</a></li>
+                                                                            </c:if>
+                                                                        </c:forEach>
+                                                                    </ul>
+                                                                </div>
+                                                                <!-- /.navbar-collapse -->
+                                                            </div>
+                                                            </nav>
