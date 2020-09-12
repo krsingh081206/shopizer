@@ -27,6 +27,11 @@ response.setDateHeader ("Expires", -1);
 
 		
 		<!-- home page - top category CUSTOM CONTENT in home page -->
+<style type=text/css>
+
+@media (max-width: 767px) {
+.container {width:300px}
+</style>
 		<c:if test="${page!=null}">
 			<div class="service-area pt-80">
 				<div class="container">

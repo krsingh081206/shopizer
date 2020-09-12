@@ -562,8 +562,15 @@ function initPayment(paymentSelection) {
 }
 
 
+
 </script>
 
+<style type=text/css>
+
+@media (max-width: 767px) {
+.container {min-width:300px}
+}
+</style>
 		<!-- page-title-wrapper-end -->
 		<!-- entry-header-area start -->
 		<div class="entry-header-area ptb-40">

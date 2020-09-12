@@ -1142,7 +1142,7 @@ fieldset[disabled] .twitter-typeahead .tt-input {
   .au-banner.style-8 .banner-content {
     left: 310px;
   }
-  .padding-0 {
+ /*  .padding-0 {
   	padding: 0 !important	
   }
   .hide-xs {
@@ -1153,7 +1153,7 @@ fieldset[disabled] .twitter-typeahead .tt-input {
   }
   .hide-xs {
   	display: none
-  }
+  } */
 }
 
 @media (max-width: 575px) {

@@ -136,7 +136,11 @@ response.setDateHeader ("Expires", -1);
  
  
 </script>
+<style type=text/css>
 
+@media (max-width: 767px) {
+.container {width:300px}
+</style>
 
 	<div id="mainContent" class="container">
 
