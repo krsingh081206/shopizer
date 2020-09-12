@@ -60,6 +60,7 @@ section.products-grid .product .thumbnail {
 
 section.products-grid .product .thumbnail img {
 	margin-top:20px;
+	height: -webkit-fill-available
 }
 
 .category-products {
