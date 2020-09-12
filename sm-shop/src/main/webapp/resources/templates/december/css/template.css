@@ -1154,6 +1154,14 @@ fieldset[disabled] .twitter-typeahead .tt-input {
   .hide-xs {
   	display: none
   }
+  section.products-grid .product .thumbnail img {
+	width: 300px;
+	height: 300px
+  }
+  .product-content {
+  	margin-top: 33px
+  }
+  
 }
 
 @media (max-width: 575px) {
