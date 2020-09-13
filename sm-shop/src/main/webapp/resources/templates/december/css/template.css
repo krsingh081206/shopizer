@@ -60,7 +60,7 @@ section.products-grid .product .thumbnail {
 
 section.products-grid .product .thumbnail img {
 	margin-top:20px;
-	height: -webkit-fill-available
+	height: -webkit-fill-available;
 }
 
 .category-products {
@@ -1153,14 +1153,14 @@ fieldset[disabled] .twitter-typeahead .tt-input {
   	border: 1px solid #e5e0e0
   }
   .hide-xs {
-  	display: none
+  	display: none;
   }
   section.products-grid .product .thumbnail img {
 	width: 300px;
-	height: 300px
+	height: 300px;
   }
   .product-content {
-  	margin-top: 33px
+  	margin-top: 33px;
   }
   
 }
