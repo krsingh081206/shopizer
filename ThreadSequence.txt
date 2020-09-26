@@ -1,0 +1,9 @@
+Print 1 2 3 infinitely using thread in Java. Create three threads viz T1, T2, and T3 such that those should print 1 2 3 sequence infinitely. 
+
+T1 : 1
+T2 : 2
+T3 : 3
+T1 : 1
+T2 : 2
+T3 : 3
+…………..
