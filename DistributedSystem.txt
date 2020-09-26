@@ -1,0 +1,5 @@
+Let's say we have distributed application with two web servers, connected to the same database.
+ Customers book bus seats using this application, which are numbered from 1 to 40. 
+ In the same second Alice on web server 1 books 2 seats  and get seat number 9 and 10. 
+ In the same moment Bob reserves 2 seats on web server 2. It also gets seat number 9 and 5 for Bob and tries to write it back to database.
+ But it fails, since Alice's commit was first. I want a web application server to book ticket for Bob again and then - try to save again until it succeeds.
