@@ -1,0 +1,10 @@
+Print random odd & even number [Range 1 to 100] alternately using thread in Java. Create 2 threads viz T1 and T2 such that  T1 print odd number and T2 print even sequence infinitely. 
+
+Sample Output :-
+
+T1 : 3
+T2 : 6
+T1 : 1
+T2 : 2
+T1 : 5
+T2 : 4
