@@ -45,6 +45,8 @@ $(document).ready(function() {
 	}); */
 	
 	var prefix = 'Bhopal, Madhya Pradesh, ';
+	 var isdPrefix ='+91';
+	
 				$('#addressAutocomplete').on('input',function(){
 				var str = $('#addressAutocomplete').val();
 				if(str.indexOf(prefix) == 0) {
@@ -59,6 +61,21 @@ $(document).ready(function() {
 					}
 				}
 			   });
+				
+				$('#phone-number').on('input',function(){
+					var pstr = $('#phone-number').val();
+					if(pstr.indexOf(isdPrefix) == 0) {
+						// string already started with isdPrefix
+						return;
+					} else {
+						if (isdPrefix.indexOf(pstr) >= 0) {
+							// string is part of isdPrefix
+							$('#phone-number').val(isdPrefix);
+						} else {
+							$('#phone-number').val(isdPrefix+pstr);
+						}
+					}
+				   });
 	
 	
 });
@@ -217,7 +234,7 @@ function isFormValid() {
 	                        <label><s:message code="label.customer.telephone" text="Phone"/></label>
 	                        <div class="controls">
 	                        			<s:message code="NotEmpty.customer.billing.phone" text="Phone number is required" var="msgPhone"/>
-	                                    <form:input cssClass="input-large required customer-phone form-control form-control-md"  maxlength="32" path="phone" title="${msgPhone}"/>
+	                                    <form:input id="phone-number" cssClass="input-large required customer-phone form-control form-control-md"  maxlength="32" path="phone" title="${msgPhone}"/>
 	                                    <span class="help-inline"><form:errors path="phone" cssClass="error" /></span>
 	                        </div>
 	                  </div>

@@ -122,8 +122,8 @@ public class EmailTemplatesUtils {
 		    	   if(country!=null) {
 		    		   billing.append(country.getName()).append(" ");
 		    	   }
-		    	   billing.append(order.getBilling().getPostalCode());
-		    	   
+		    	   billing.append(order.getBilling().getPostalCode()).append(LINE_BREAK);
+		    	   billing.append(order.getBilling().getTelephone());
 		    	   
 		    	   //format shipping address
 		    	   StringBuilder shipping = null;

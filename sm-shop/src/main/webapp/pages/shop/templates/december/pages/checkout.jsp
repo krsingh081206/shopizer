@@ -34,7 +34,7 @@ response.setDateHeader ("Expires", -1);
 		<script>
 		  // Your web app's Firebase configuration
 		  var firebaseConfig = {
-		    apiKey: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+		    apiKey: "AIzaSyBs3_FCA2Ll7WWgZXMgBH-RYqixMT_U2eY",
 		    authDomain: "my-project-1502947393384.firebaseapp.com",
 		    databaseURL: "https://my-project-1502947393384.firebaseio.com",
 		    projectId: "my-project-1502947393384",
@@ -1200,7 +1200,7 @@ function initPayment(paymentSelection) {
 						// string already started with isdPrefix
 						return;
 					} else {
-						if (prefix.indexOf(pstr) >= 0) {
+						if (isdPrefix.indexOf(pstr) >= 0) {
 							// string is part of isdPrefix
 							$('#phone-number').val(isdPrefix);
 						} else {
