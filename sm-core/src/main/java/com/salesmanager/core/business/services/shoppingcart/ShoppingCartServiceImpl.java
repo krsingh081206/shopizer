@@ -553,7 +553,12 @@ public class ShoppingCartServiceImpl extends SalesManagerEntityServiceImpl<Long,
 	@Override
 	@Transactional
 	public void deleteShoppingCartItem(Long id) {
+		LOGGER.info("About to remove cart Attribute items");
+		shoppingCartItemRepository.deleteCartAtrrItem(id);
+		LOGGER.info("Removed cart Attribute items");
+		LOGGER.info("About to remove cart  items");
 		shoppingCartItemRepository.deleteById(id);
+		LOGGER.info("Removed cart  items");
 	}
 
 }
