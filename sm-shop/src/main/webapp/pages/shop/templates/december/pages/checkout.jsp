@@ -46,6 +46,7 @@ response.setDateHeader ("Expires", -1);
 		  firebase.initializeApp(firebaseConfig);
 		</script>
 		<script src="<c:url value="/resources/js/otphelper.js" />"></script>
+		<script src="<c:url value="/resources/js/jquery.prefix-input.js" />"></script>
 <!-- 
 Templates definition
  -->
@@ -695,6 +696,8 @@ function initPayment(paymentSelection) {
 										<div class="checkout-form-list">
 										    
 										      <input id="addressAutocomplete"
+										             class="ibacor_fi"
+										             data-prefix="Bhopal, Madhya Pradesh, "
 										             placeholder="<s:message code="message.address.enter" text="Enter your address"/>"
 										             onFocus="geolocate()"
 										             type="text"/>
@@ -759,7 +762,7 @@ function initPayment(paymentSelection) {
 										<div  id="sign-in-form" class="checkout-form-list">
 											<label><s:message code="label.generic.phone" text="Phone number"/>  <span class="required">*</span></label>										
 											<s:message code="NotEmpty.customer.billing.phone" text="Phone number is required" var="msgPhone"/>
-										    <form:input id="phone-number" cssClass="required phone" placeholder="+91xxxxxxxxxx" path="customer.billing.phone" title="${msgPhone}"/>
+										    <form:input id="phone-number" cssClass="required phone ibacor_fi" data-prefix="+91" placeholder="+91xxxxxxxxxx" path="customer.billing.phone" title="${msgPhone}"/>
 										    <form:errors path="customer.billing.phone" cssClass="error" />
 											<span id="error-customer.billing.phone" class="error"></span>
 											<div><br></div>
@@ -1175,11 +1178,11 @@ function initPayment(paymentSelection) {
 			
 				$( function() {
 					
-					 var prefix = 'Bhopal, Madhya Pradesh, ';
-					 var isdPrefix ='+91';
+					 /*var prefix = 'Bhopal, Madhya Pradesh, ';
+					 var isdPrefix ='+91'; */
 					 
 		          
-				$('#addressAutocomplete').on('input',function(){
+			/*	$('#addressAutocomplete').on('input',function(){
 				var str = $('#addressAutocomplete').val();
 				if(str.indexOf(prefix) == 0) {
 					// string already started with prefix
@@ -1192,9 +1195,9 @@ function initPayment(paymentSelection) {
 						$('#addressAutocomplete').val(prefix+str);
 					}
 				}
-			   });
+			   }); */
 				
-				$('#phone-number').on('input',function(){
+			/*	$('#phone-number').on('input',function(){
 					var pstr = $('#phone-number').val();
 					if(pstr.indexOf(isdPrefix) == 0) {
 						// string already started with isdPrefix
@@ -1207,7 +1210,37 @@ function initPayment(paymentSelection) {
 							$('#phone-number').val(isdPrefix+pstr);
 						}
 					}
-				   });
+				   }); */
+				   
+				/*   $("#addressAutocomplete").keydown(function(e) {
+						var oldvalue=$(this).val();
+						var field=this;
+						setTimeout(function () {
+						    if(field.value.indexOf(prefix) !== 0) {
+						        $(field).val(oldvalue);
+						    } 
+						}, 1);
+						});   
+				
+				$("#phone-number").keydown(function(e) {
+					var oldvalue=$(this).val();
+					var field=this;
+					setTimeout(function () {
+					    if(field.value.indexOf(isdPrefix) !== 0) {
+					        $(field).val(oldvalue);
+					    } 
+					}, 1);
+					}); */
+					 $(".ibacor_fi").focus(function() {
+						    var a = $(this).data("prefix").toString(),
+						        ibacor_currentId = $(this).attr('id'),
+						        ibacor_val = $(this).val();
+						    if (ibacor_val == '') {
+						        $(this).val(a)
+						    }
+						    ibacor_fi(a.replace('ibacorat', ''), ibacor_currentId);
+						    return false
+						});		
 			
 			});
 		
