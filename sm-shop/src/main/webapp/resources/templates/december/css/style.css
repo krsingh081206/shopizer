@@ -839,7 +839,6 @@ body {}
 }
 .product-img > a{
 	position:relative;
-	display:block;
 	transition:all .4s;
 }
 .product-img .seceond_img{
