@@ -178,7 +178,7 @@
 											<div class="product-info-tab-content">
 												<c:out value="${product.description.description}"
 													escapeXml="false" />
-												<dl class="dl-horizontal">
+											<%-- 	<dl class="dl-horizontal">
 													<dt>
 														<s:message code="label.product.weight" text="Weight" />
 														:
@@ -227,7 +227,7 @@
 															code="label.generic.sizeunit.${requestScope.MERCHANT_STORE.seizeunitcode}"
 															text="Inches" />
 													</dd>
-												</dl>
+												</dl> --%>
 											</div>
 										</div>
 										<div class="tab-pane" id="reviews">
@@ -305,7 +305,7 @@
 		        $("#largeImg").html("<img src='" + url + "' /><a href='" + url + "' data-mfp-src='" + url + "' class='popup-img overlay' title='" + name + "'><i class='fa fa-search-plus'></i></a>");
 		        //re bind action
 		        $('.popup-img').magnificPopup({type:'image'});
-		    })
+		    });
 		    
 		})
 		

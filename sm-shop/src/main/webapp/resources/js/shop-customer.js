@@ -56,6 +56,16 @@
 						}
 					}
 			}
+			
+			if($(this).hasClass('customer-phone')) {	
+				var phoneValid = validatePhone($(this).val());
+				console.log('phone is valid ? ' + phoneValid);
+				if(!phoneValid) {
+					if(errorMessage==null) {
+						errorMessage = 'Invalid phone Number';
+					}
+				}
+			}
 		});
 		
 		return errorMessage;
@@ -99,3 +109,14 @@
 
 		
 }
+ 
+ function validatePhone($phone) {
+		//  var phoneReg = /^[0]?[789]\d{9}$/;
+		  var phoneReg = /^\+[0-9\s\-\(\)]+$/;
+		  if ( $phone.length === 13  && phoneReg.test($phone)) 
+		  {
+		    return true;
+		  } else {
+		    return false;
+		  }
+	} 

@@ -25,6 +25,28 @@ response.setDateHeader ("Expires", -1);
 <!-- generic checkout script -->
 <script src="<c:url value="/resources/js/shop-checkout.js" />"></script>
 
+	<!-- Import and configure the Firebase SDK -->
+		<!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
+		<!-- If you do not serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
+		
+		<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+		<script>
+		  // Your web app's Firebase configuration
+		  var firebaseConfig = {
+		    apiKey: "AIzaSyBs3_FCA2Ll7WWgZXMgBH-RYqixMT_U2eY",
+		    authDomain: "my-project-1502947393384.firebaseapp.com",
+		    databaseURL: "https://my-project-1502947393384.firebaseio.com",
+		    projectId: "my-project-1502947393384",
+		    storageBucket: "my-project-1502947393384.appspot.com",
+		    messagingSenderId: "534483946889",
+		    appId: "1:534483946889:web:7751e9df0df4ba2d0c6558"
+		  };
+		  // Initialize Firebase
+		  firebase.initializeApp(firebaseConfig);
+		</script>
+		<script src="<c:url value="/resources/js/otphelper.js" />"></script>
+		<script src="<c:url value="/resources/js/jquery.prefix-input.js" />"></script>
 <!-- 
 Templates definition
  -->
@@ -89,7 +111,9 @@ var useDistanceWindow = <c:out value="${shippingMetaData.useDistanceModule}"/>;
 
 $(document).ready(function() {
 	
-	
+	console.log('About to logout from Firebase');
+	onSignOutClick();
+	console.log('Logged Out from Firebase');
 	//logic for initialyzing the form, needs to be maintained
 	
 	//form displaying shipping address
@@ -190,8 +214,10 @@ $(document).ready(function() {
 	shippingMethod='<c:out value="${shippingQuote.shippingModuleCode}"/>';
 	</c:if>
 	
-
-	
+    // Intention is to hide Ship Address & Use Common Fields for Billing/Shipping 
+	//$('#shippingAddressdiv').hide();
+	//$("#shipToDeliveryAddress").prop("checked", false);
+	$("#shipToDeliveryAddress").hide();
 	//console.log(address);
 	displayConfirmShipping(address,shippingMethod,useDistanceWindow);
 	
@@ -237,6 +263,18 @@ function isFormValid() {
 				}
 			}
 		}
+		
+		if($(this).hasClass('phone')) {	
+			var phoneValid = validatePhone($(this).val());
+			console.log('phone is valid ? ' + phoneValid);
+			if(!phoneValid) {
+				if(firstErrorMessage==null) {
+					firstErrorMessage = 'Invalid phone Number';
+					valid = false;
+				}
+			}
+		}
+		
 	});
 	
 	//validate basic card at the end
@@ -247,8 +285,7 @@ function isFormValid() {
 		}
 	}
 	
-
-	//console.log('Form is valid ? ' + valid);
+   
 	if(valid==false) {//disable submit button
 		if(firstErrorMessage!=null) {
 			$(formErrorMessageId).addClass('alert-error alert-danger');
@@ -441,6 +478,9 @@ function bindActions() {
     //final order submission button
 	$("#submitOrder").click(function(e) {
 		e.preventDefault();//do not submit form
+		 var firebaseUserSignedIn = updateSignedInUserStatusUI();
+		 console.log('Sign In status for Firebase user ' + firebaseUserSignedIn);
+		if (firebaseUserSignedIn) {
 		formValid = isFormValid();
 		resetErrorMessage();
 		setCountrySettings('billing',$('.billing-country-list').val());
@@ -494,6 +534,14 @@ function bindActions() {
 			//submit form
 			submitForm();	
 		}
+	 } else {
+		 $('#submitOrder').addClass('btn-disabled');
+		 $('#submitOrder').prop('disabled', true);
+		 $("html, body").animate({ scrollTop: 0 }, "slow");
+		 toastr.error('Mobile OTP Verification is not complete');
+		 console.log('User has not completeted OTP verification');
+		 
+	 }	
     });
 }
 
@@ -584,7 +632,7 @@ function initPayment(paymentSelection) {
 						<div class="coupon-accordion">
 							<!-- ACCORDION START -->
 							<sec:authorize access="!hasRole('AUTH_CUSTOMER') and !fullyAuthenticated">
-								<p class="muted common-row"><a href="<c:url value="/shop/customer/customLogon.html"/>"><s:message code="label.checkout.logon" text="Logon or signup to simplify the online purchase process!"/></a></p>
+								<p class="muted common-row"><a href="<c:url value="/shop/customer/customLogon.html"/>"><b><s:message code="label.checkout.logon" text="Logon or signup to simplify online purchase!"/></b></a></p>
 							</sec:authorize>					
 						</div>
 					</div>
@@ -648,8 +696,9 @@ function initPayment(paymentSelection) {
 										<div class="checkout-form-list">
 										    
 										      <input id="addressAutocomplete"
+										             class="ibacor_fi"
+										             data-prefix="Bhopal, Madhya Pradesh, "
 										             placeholder="<s:message code="message.address.enter" text="Enter your address"/>"
-										             class="required"
 										             onFocus="geolocate()"
 										             type="text"/>
 										</div>
@@ -704,21 +753,39 @@ function initPayment(paymentSelection) {
 										<div class="checkout-form-list">
 											<label><s:message code="label.generic.email" text="Email address"/> <span class="required">*</span></label>										
 											<s:message code="NotEmpty.customer.emailAddress" text="Email address is required" var="msgEmail"/> 
-										    <form:input id="customer.emailAddress" cssClass="required" path="customer.emailAddress" title="${msgEmail}"/>
+										    <form:input id="customer.emailAddress" cssClass="required email" path="customer.emailAddress" title="${msgEmail}"/>
 										    <form:errors path="customer.emailAddress" cssClass="error" />
 											<span id="error-customer.emailAddress" class="error"></span>
 										</div>
 									</div>
 									<div class="col-md-6">
-										<div class="checkout-form-list">
+										<div  id="sign-in-form" class="checkout-form-list">
 											<label><s:message code="label.generic.phone" text="Phone number"/>  <span class="required">*</span></label>										
 											<s:message code="NotEmpty.customer.billing.phone" text="Phone number is required" var="msgPhone"/>
-										    <form:input id="customer.billing.phone" cssClass="required" path="customer.billing.phone" title="${msgPhone}"/>
+										    <form:input id="phone-number" cssClass="required phone ibacor_fi" data-prefix="+91" placeholder="+91xxxxxxxxxx" path="customer.billing.phone" title="${msgPhone}"/>
 										    <form:errors path="customer.billing.phone" cssClass="error" />
 											<span id="error-customer.billing.phone" class="error"></span>
+											<div><br></div>
+											<button disabled class="blinkstyle btn btn-default btn-large" id="sign-in-button">Verify via OTP</button>
+											<button class="btn btn-default btn-large" id="sign-out-button">Sign-Out</button>
 										</div>
 									</div>
-									<sec:authorize access="!hasRole('AUTH_CUSTOMER') and !fullyAuthenticated">
+									<div class="col-md-6">
+										<div id="verification-code-form">
+											<!-- Input to enter the verification code -->
+											<div class="controls">
+											  <input class="form-control form-control-md" placeholder="Enter 6 digit OTP" type="text" id="verification-code">
+											  
+											</div>
+
+											<!-- Button that triggers code verification -->
+											<br>
+											<button class="blinkstyle btn btn-default btn-large" id="verify-code-button">Enter OTP Code</button>
+											<!-- Button to cancel code verification -->
+											<button class="blinkstyle btn btn-default btn-large" id="cancel-verify-code-button">Cancel</button>
+										  </div>
+									</div>
+								<%--	<sec:authorize access="!hasRole('AUTH_CUSTOMER') and !fullyAuthenticated">
 									<div class="col-md-12">
 										<div class="checkout-form-list create-acc">	
 											<input id="cbox" type="checkbox" />
@@ -731,16 +798,16 @@ function initPayment(paymentSelection) {
 											<form:input id="customer.password" cssClass="required" path="customer.password" title="${msgPassword}"/>	
 										</div>
 									</div>								
-									</sec:authorize>
+									</sec:authorize> --%>
 								</div>
 								<c:if test="${shippingQuote!=null}">
-								<div class="different-address">
-										<div class="ship-different-title">
+								<div id ="shippingAddressdiv" class="different-address">
+									<!-- 	<div class="ship-different-title">
 											<h3>
 												<label><s:message code="label.customer.shipping.shipdifferentaddress" text="Ship to a different address?"/></label>
 												<form:checkbox path="shipToDeliveryAddress" id="shipToDeliveryAddress"/>
 											</h3>
-										</div>
+										</div> -->
 									<div id="ship-box-info" class="row">
 										<div class="col-md-6">
 											<div class="checkout-form-list">
@@ -965,12 +1032,25 @@ function initPayment(paymentSelection) {
 											name="${paymentMethod.paymentMethodCode}"
 											aria-controls="#${paymentMethod.paymentType}" role="tab"
 											data-toggle="tab"> 
-
+											<c:choose>
+													<c:when
+														test="${paymentMethod.paymentMethodCode=='moneyorder'}">
+														<h5>Cash On Delivery</h5>
+													</c:when>
+													<c:when
+														test="${paymentMethod.paymentMethodCode=='paypal-express-checkout'}">
+														<h5>PayTM</h5>
+													</c:when>
+													<c:otherwise>
 														<h5>
 															<s:message
 																code="payment.type.${paymentMethod.paymentType}"
 																text="Payment method type [payment.type.${paymentMethod.paymentType}] not defined in payment.properties" />
 														</h5>
+													</c:otherwise>
+												</c:choose>
+
+
 
 										</a>
 										</li>
@@ -1095,6 +1175,74 @@ function initPayment(paymentSelection) {
 				//initMap();
 				</c:if>	
 			}
+			
+				$( function() {
+					
+					 /*var prefix = 'Bhopal, Madhya Pradesh, ';
+					 var isdPrefix ='+91'; */
+					 
+		          
+			/*	$('#addressAutocomplete').on('input',function(){
+				var str = $('#addressAutocomplete').val();
+				if(str.indexOf(prefix) == 0) {
+					// string already started with prefix
+					return;
+				} else {
+					if (prefix.indexOf(str) >= 0) {
+						// string is part of prefix
+						$('#addressAutocomplete').val(prefix);
+					} else {
+						$('#addressAutocomplete').val(prefix+str);
+					}
+				}
+			   }); */
+				
+			/*	$('#phone-number').on('input',function(){
+					var pstr = $('#phone-number').val();
+					if(pstr.indexOf(isdPrefix) == 0) {
+						// string already started with isdPrefix
+						return;
+					} else {
+						if (isdPrefix.indexOf(pstr) >= 0) {
+							// string is part of isdPrefix
+							$('#phone-number').val(isdPrefix);
+						} else {
+							$('#phone-number').val(isdPrefix+pstr);
+						}
+					}
+				   }); */
+				   
+				/*   $("#addressAutocomplete").keydown(function(e) {
+						var oldvalue=$(this).val();
+						var field=this;
+						setTimeout(function () {
+						    if(field.value.indexOf(prefix) !== 0) {
+						        $(field).val(oldvalue);
+						    } 
+						}, 1);
+						});   
+				
+				$("#phone-number").keydown(function(e) {
+					var oldvalue=$(this).val();
+					var field=this;
+					setTimeout(function () {
+					    if(field.value.indexOf(isdPrefix) !== 0) {
+					        $(field).val(oldvalue);
+					    } 
+					}, 1);
+					}); */
+					 $(".ibacor_fi").focus(function() {
+						    var a = $(this).data("prefix").toString(),
+						        ibacor_currentId = $(this).attr('id'),
+						        ibacor_val = $(this).val();
+						    if (ibacor_val == '') {
+						        $(this).val(a)
+						    }
+						    ibacor_fi(a.replace('ibacorat', ''), ibacor_currentId);
+						    return false
+						});		
+			
+			});
 		
 		</script>
 		
@@ -1102,3 +1250,4 @@ function initPayment(paymentSelection) {
 		  	  <script src="https://maps.googleapis.com/maps/api/js?key=<c:out value="${googleMapsKey}"/>&libraries=places&callback=googleInitialize"
 		        async defer></script>
 		</c:if>
+	

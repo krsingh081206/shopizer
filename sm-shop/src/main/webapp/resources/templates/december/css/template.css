@@ -60,6 +60,7 @@ section.products-grid .product .thumbnail {
 
 section.products-grid .product .thumbnail img {
 	margin-top:20px;
+	height: -webkit-fill-available;
 }
 
 .category-products {
@@ -180,7 +181,16 @@ Setup
     text-decoration: none;	
 }
 
-
+.buyNow{
+    float: left;
+    background-color: #555555;
+    color: white;
+    padding: 0 1.3em;
+    font-size: 1.0em;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    line-height: 42px;
+    text-decoration: none;	
+}
 
 .store-btn{
   min-width: 2em;
@@ -233,6 +243,13 @@ Setup
 	.slider-button {
 		display:none;
 	}
+	.topBar {
+	    font-size: 26px !important;
+    	margin-top: 12px;
+    }
+    .margin-none {
+    	margin: 0 !important
+    }
 }
 
 @media (max-width: 460px) {
@@ -1135,6 +1152,26 @@ fieldset[disabled] .twitter-typeahead .tt-input {
   .au-banner.style-8 .banner-content {
     left: 310px;
   }
+  .padding-0 {
+  	padding: 0 !important	
+  }
+  .hide-xs {
+  	display: block !important
+  }
+  .border {
+  	border: 1px solid #e5e0e0
+  }
+  .hide-xs {
+  	display: none
+  }
+  section.products-grid .product .thumbnail img {
+	width: 300px;
+	height: 300px;
+  }
+  .product-content {
+  	margin-top: 33px;
+  }
+  
 }
 
 @media (max-width: 575px) {
@@ -1393,7 +1430,9 @@ fieldset[disabled] .twitter-typeahead .tt-input {
     }
 
 @media (max-width: 767px){
-
+.container-big {
+	
+}
 div[class^="col-"] {
     margin-bottom: 30px;
 }

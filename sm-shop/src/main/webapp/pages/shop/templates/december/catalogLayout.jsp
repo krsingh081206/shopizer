@@ -52,10 +52,10 @@ response.setDateHeader ("Expires", -1);
 									<a class="listing-product-name" href="<c:url value="/shop/product/" />{{description.friendlyUrl}}.html"><h3 itemprop="name">{{description.name}}</h3></a>
 									<!--<span class="text-center width-100"><div class="stars" id="productRating_{{id}}"></div></span>-->
 									<h4>
-										{{#discounted}}<del>{{originalPrice}}</del>&nbsp;<span itemprop="price" class="specialPrice">{{finalPrice}}</span>{{/discounted}}
-										{{^discounted}}<span itemprop="price">{{finalPrice}}</span>{{/discounted}}
+										{{#discounted}}<del>{{originalPrice}}</del>&nbsp;<span itemprop="price" class="specialPrice">{{finalPrice}}(Per 500 gms)</span>{{/discounted}}
+										{{^discounted}}<span itemprop="price">{{finalPrice}}(Per 500 gms)</span>{{/discounted}}
 									</h4>
-									<c:if test="${requestScope.CONFIGS['allowPurchaseItems'] == true}">
+									<c:if test="${requestScope.CONFIGS['displayAddToCartOnFeaturedItems'] == true}">
 									<div class="store-btn">
       									<div class="store-btn-addtocart"><a class="addToCart" href="javascript:void(0)" productId="{{id}}"><s:message code="button.label.addToCart" text="Add to cart"/></a></div>
    									</div>
@@ -101,6 +101,7 @@ response.setDateHeader ("Expires", -1);
 		    "href": "/shop/pages/terms-and-policy.html"
 	   }
 	});
+	
 	</script>
      
  	</body>

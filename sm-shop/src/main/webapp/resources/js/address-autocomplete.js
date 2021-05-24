@@ -55,8 +55,10 @@ function fillInAddress() {
 
     for (var component in componentForm) {
       console.log(componentForm[component]);
+      if (typeof (document.getElementById(componentForm[component])) != 'undefined' &&  document.getElementById(componentForm[component]) != null ){
       document.getElementById(componentForm[component]).value = '';
       document.getElementById(componentForm[component]).disabled = false;
+      }
     }
 
     // Get each component of the address from the place details
@@ -99,7 +101,9 @@ function fillInAddress() {
             		zone = val;
             		continue;
             	} 
+            	if (typeof (document.getElementById(componentForm[addressType])) != 'undefined' &&  document.getElementById(componentForm[addressType]) != null ){
             	document.getElementById(componentForm[addressType]).value = val;
+            	}
             }
           }
         }
@@ -112,9 +116,15 @@ function fillInAddress() {
   	  streetField = streetField + street;
     }
     
-    document.getElementById('customer.billing.address').value = streetField;
+   // document.getElementById('customer.billing.address').value = streetField;
+    var steetAddress ='';
+    var address1 = (place.address_components[0] && place.address_components[0].short_name || '');
+    var address2 =(place.address_components[1] && place.address_components[1].short_name || '');
+    var address3 = (place.address_components[2] && place.address_components[2].short_name || '');
+    steetAddress = address1.concat(', ',address2,', ',address3);
+    document.getElementById('customer.billing.address').value = steetAddress;
     
-    getZones('#billingStateList','#billingStateProvince',country,zone,longProvinceName,getLanguageCode(),null);
+  //  getZones('#billingStateList','#billingStateProvince',country,zone,longProvinceName,getLanguageCode(),null);
 
     if(postal != '') {
     	 //new quote
