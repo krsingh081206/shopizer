@@ -1,0 +1,1000 @@
+   71  exit
+   72  systemctl start mariadb.service
+   73  cd /opt/ecommerce/shopizer/
+   74  cd sm-shop
+   75  mvn spring-boot:run
+   76  exit
+   77  vi shopshutdown.sh 
+   78  exit
+   79  pwd
+   80  history
+   81  systemctl restart mariadb.service
+   82  systemctl status mariadb.service
+   83  systemctl stop mariadb.service
+   84  systemctl status mariadb.service
+   85  systemctl start mariadb.service
+   86  systemctl restart mariadb.service
+   87  systemctl status mariadb.service
+   88  systemctl restart elasticsearch
+   89  systemctl status elasticsearch
+   90  cd /opt/ecommerce/shopizer/sm-shop
+   91  ll
+   92  systemctl status mariadb.service
+   93  systemctl status nginx
+   94  systemctl status elasticsearch
+   95  pwd
+   96  nohup mvn spring-boot:run >/dev/null 2>&1 &
+   97  ps -eaf | grep java
+   98  ll
+   99  ll
+  100  tail -f shopizer.log 
+  101  ps -eaf | grep jav
+  102  pkill -9 java
+  103  ps -eaf | grep java
+  104  ps -eaf | grep java
+  105  ps -eaf | grep java
+  106  pwd
+  107  free -tm
+  108  pwd
+  109  cd $HOME
+  110  ll
+  111  pwd
+  112  vi shopstartup.sh
+  113  chmod +x shopstartup.sh
+  114  cp shopstartup.sh shopshutdown.sh
+  115  vi shopshutdown.sh 
+  116  chmod +x shopshutdown.sh
+  117  vi shopstartup.sh
+  118  ./shopstartup.sh 
+  119  ./shopshutdown.sh 
+  120  exit
+  121  cp shopstartup.sh /home/ec2-user/
+  122  cd /root
+  123  cp shopstartup.sh /home/ec2-user/
+  124  cp shopshutdown.sh /home/ec2-user/
+  125  exit
+  126  exit
+  127  ll
+  128  chmod 777 shopstartup.sh shopshutdown.sh
+  129  ll
+  130  chmod +x /etc/rc.d/rc.local
+  131  pwd
+  132  vi /etc/rc.d/rc.local
+  133  ll
+  134  vi shopstartup.sh
+  135  pwd
+  136  ll
+  137  exit
+  138  ps -eaf | grep java
+  139  ps -eaf | grep java
+  140  ps -eaf  | grep nginx 
+  141  ps -eaf  | grep mariadb
+  142  ps -eaf | grep start*
+  143  ps -eaf | grep java
+  144  ps -eaf | grep java
+  145  ps -eaf | grep java
+  146  pwd
+  147  ll
+  148  exit
+  149  ps -eaf | grep mariadb.service
+  150  ps -eaf | grep java
+  151  ps -eaf | grep java
+  152  ps -eaf | grep java
+  153  ps -eaf | grep java
+  154  ps -eaf | grep java
+  155  ll
+  156  vi shopshutdown.sh 
+  157  ps -eaf | grep java
+  158  pkill -9 java
+  159  ps -eaf | grep java
+  160  exit
+  161  ps -eaf | grep java
+  162  cd /opt/ecommerce/shopizer/
+  163  cd sm-shop
+  164  ll
+  165  tail -f shopizer.log 
+  166  cd /home/ec2-user/
+  167  ./shopshutdown.sh 
+  168  exit
+  169  exit
+  170  ps -eaf | grep java
+  171  pkill -9 java
+  172  ps -eaf | grep java
+  173  systemctl stop mariadb.service
+  174  cd /opt/ecommerce/
+  175  ll
+  176  cd shopizer
+  177  ll
+  178  git status
+  179  git diff sm-core/src/main/resources/shopizer-core.properties
+  180  pwd
+  181  ll
+  182  clear
+  183  pwd
+  184  cd $HOME
+  185  ll
+  186  mkdir workingecomm
+  187  pwd
+  188  cd /opt/ecommerce/shopizer/
+  189  git status
+  190  cp sm-core/src/main/resources/shopizer-core.properties /root/workingecomm/
+  191  cp sm-shop/src/main/resources/application.properties /root/workingecomm/
+  192  cp sm-shop/src/main/resources/application.yml /root/workingecomm/
+  193  cd /root/workingecomm/
+  194  ll
+  195  vi application.
+  196  vi application.properties 
+  197  vi application.yml
+  198  pwd
+  199  cd /opt/ecommerce/shopizer/
+  200  ll
+  201  git status
+  202  git checkout .
+  203  git pull
+  204  vi sm-shop/src/main/webapp/resources/templates/december/css/template.css
+  205  git status
+  206  pwd
+  207  cd /root/workingecomm/
+  208  ll
+  209  cp shopizer-core.properties /opt/ecommerce/shopizer/sm-core/src/main/resources/
+  210  cp application.yml /opt/ecommerce/shopizer/sm-shop/src/main/resources/
+  211  cp application.properties /opt/ecommerce/shopizer/sm-shop/src/main/resources/
+  212  cd /opt/ecommerce/shopizer/
+  213  ll
+  214  mvn clean install -DskipTests=true
+  215  cd sm-shop
+  216  ll
+  217  cd /root
+  218  ll
+  219  vi shopstartup.sh
+  220  cd /home/ec2-user/
+  221  ll
+  222  vi shopstartup.sh
+  223  ./shopstartup.sh
+  224  systemctl status nginx
+  225  systemctl stop nginx
+  226  systemctl status nginx
+  227  exit
+  228  cd /var/log
+  229  ll
+  230  cd nginx/
+  231  ll
+  232  tail -f error.log
+  233  ll
+  234  :>access.log
+  235  ll
+  236  :>error.log
+  237  tail -f access.log
+  238  pwd
+  239  mysql -ushopizer -pshopizer
+  240  exit
+  241  systemctl stop nginx
+  242  ps -eaf | grep nginx
+  243  systemctl status mariadb.service
+  244  ps -eaf | grep java
+  245  cd /opt/ecommerce/shopizer/sm-shop
+  246  ll
+  247  ps -eaf| grep java
+  248  ps -eaf | grep elastic
+  249  ps -eaf | grep mariadb
+  250  ll
+  251  mvn spring-boot:run
+  252  exit
+  253  :>shopizer.log
+  254  ll
+  255  ps -eaf | grep java
+  256  pkill -9 java
+  257  ps -eaf | grep java
+  258  ps -eaf | grep java
+  259  cd /usr/share/nginx/html
+  260  ll
+  261  vi 50x.html
+  262  exit
+  263  ps -eaf | grep java
+  264  ps -eaf | grep nginx
+  265  free -tm
+  266  /usr/bin/certbot renew --quiet
+  267  exit
+  268  ps -eaf | grep java
+  269  ps -eaf | grep mysql
+  270  ps -eaf | grep nginx
+  271  free -tm
+  272  uname -a
+  273  cd /etc/nginx
+  274  ll
+  275  diff -s nginx.conf nginx.conf.bkp.30.Aug.2020.v2
+  276  diff -s nginx.conf nginx.conf.default
+  277  ll
+  278  grep -Rin shopnear
+  279  vi nginx.conf.bkp.30.Aug.2020
+  280  systemctl status nginx
+  281  ll
+  282  cp nginx.conf nginx.conf.bkp.15.Dec.2020
+  283  diff nginx.conf nginx.conf.bkp.15.Dec.2020
+  284  mv nginx.conf.bkp.30.Aug.2020 nginx.conf
+  285  nginx -t
+  286  vi nginx.conf
+  287  cp nginx.conf nginx.conf.default.http
+  288  nginx -t
+  289  systemctl reload nginx
+  290  systemctl restart nginx
+  291  ll
+  292  vi /etc/nginx/nginx.conf
+  293  vi /etc/nginx/nginx.conf
+  294  certbot --nginx -d bhopalmeats.tk -d www.bhopalmeats.tk
+  295  ll
+  296  diff nginx.conf.bkp.15.Dec.2020 nginx.conf
+  297  vi nginx.conf
+  298  diff nginx.conf.bkp.15.Dec.2020 nginx.conf
+  299  nginx -t
+  300  systemctl restart nginx
+  301  vi nginx.conf
+  302  exit
+  303  ll
+  304  cd /opt/
+  305  ll
+  306  cd ecommerce/
+  307  ll
+  308  cd shopizer/
+  309  ll
+  310  git status
+  311  cd sm-shop/src/main/resources/
+  312  ll
+  313  vi database.properties 
+  314  ps -eaf | grep java
+  315  kill -9 1585 1578 1386
+  316  ps -eaf | grep java
+  317  ll
+  318  cd ..
+  319  systemctl status mariadb.service
+  320  mysql -ushopizer -pshopizer -hlocalhost
+  321  ps -eaf | grep java
+  322  ps -eaf | grep mariadb
+  323  cd /opt
+  324  cd ecommerce/shopizer/
+  325  ll
+  326  git status
+  327  cp sm-core/src/main/resources/shopizer-core.properties $HOME/
+  328  cp sm-core/src/main/resources/shopizer-core.properties $HOME/
+  329  cp sm-shop/src/main/resources/application.yml $HOME/
+  330  pwd
+  331  ll
+  332  git fetch
+  333  git checout .
+  334  git checkout .
+  335  git checout SKU_WORKING
+  336  git checkout SKU_WORKING
+  337  git pull origin SKU_WORKING
+  338  cd sm-shop
+  339  ll
+  340  ps -eaf | grep java
+  341  kill -9 1578 1571 1381
+  342  free -tm
+  343  ll
+  344  tar -xvzf 4JAN_2021.tar.gz
+  345  cd 4JAN_2021
+  346  ll
+  347  chmod 777 janta_shop_04_JAN.sql
+  348  ll
+  349  mysql -ushopizer -pshopizer
+  350  exit
+  351  ll
+  352  cd /opt/ecommerce/shopizer/
+  353  ll
+  354  cd sm-core
+  355  ll
+  356  cd src/main/resources/
+  357  ll
+  358  vi email.properties
+  359  pwd
+  360  ll
+  361  date
+  362  vi shopizer-core.properties 
+  363  cd ..
+  364  ps -eaf | grep java
+  365  kill -9 1579
+  366  kill -9 1380
+  367  cd ..
+  368  cd ..
+  369  cd ..
+  370  ll
+  371  free -tm
+  372  mvnw clean install -DskipTests=true
+  373  mvn clean install -DskipTests=true
+  374  systemctl status elasticsearch
+  375  ps -eaf | grep java
+  376  cd sm-shop
+  377  ll
+  378  mvn spring-boot:run
+  379  systemctl stop elasticsearch
+  380  ps -eaf | grep java
+  381  cd /opt/ecommerce/
+  382  ll
+  383  cd shopizer/
+  384  ll
+  385  cd sm-shop
+  386  git status
+  387  cd ..
+  388  grep -Rin "shopnear"
+  389  cd sm-shop
+  390  ll
+  391  cd src/main/
+  392  ll
+  393  cd resources/
+  394  ll
+  395  vi application.properties
+  396  ll
+  397  vi application.yml
+  398  vi application.yml
+  399  cd ..
+  400  pwd
+  401  cd ..
+  402  ll
+  403  pwd
+  404  ll
+  405  cd main/webapp/pages/
+  406  ll
+  407  cd shop/templates/
+  408  ll
+  409  cd december/
+  410  ll
+  411  cd pages/
+  412  ll
+  413  vi checkout.jsp 
+  414  cd ..
+  415  cd ..
+  416  cd ..
+  417  pwd
+  418  grep -Rin "firebase"
+  419  vi common/merchant/contactus.jsp
+  420  vi common/merchant/contactus.jsp
+  421  pwd
+  422  cd ..
+  423  cd /root
+  424  ll
+  425  vi shopizer-core.properties
+  426  cp shopizer-core.properties /opt/ecommerce/shopizer/sm-core/src/main/resources/
+  427  systemctl status elasticsearch
+  428  systemctl status elasticsearch.ser
+  429  systemctl status elasticsearch.sevice
+  430  systemctl status elasticsearch.service
+  431  systemctl restart elasticsearch.service
+  432  systemctl status elasticsearch
+  433  systemctl stop elasticsearch
+  434  cd /var/lib/elasticsearch/
+  435  ll
+  436  cd nodes
+  437  ll
+  438  cd 0
+  439  ll
+  440  cd indices/
+  441  ll
+  442  cd ..
+  443  ll
+  444  cd _state
+  445  ll
+  446  pwd
+  447  cd ..
+  448  cd ..
+  449  cd ..
+  450  ll
+  451  cd ..
+  452  cd ..
+  453  ll
+  454  cd /var/lib/elasticsearch/
+  455  ll
+  456  cd nodes
+  457  ll
+  458  cd 0
+  459  ll
+  460  mv indices backup
+  461  ll
+  462  systemctl status elasticsearch
+  463  systemctl start elasticsearch
+  464  systemctl status elasticsearch
+  465  ll
+  466  cd _state/
+  467  ll
+  468  cd ..
+  469  curl -X PUT "http://localhost:9200/product_en?pretty"
+  470  ll
+  471  cd _state/
+  472  ll
+  473  cd ..
+  474  cd backup/
+  475  ll
+  476  cd Ud2Gm0_6RHuZlNzcuHsNkA/
+  477  ll
+  478  cd _state/
+  479  ll
+  480  cd ..
+  481  cd ..
+  482  cd ..
+  483  ll
+  484  mv backup indices
+  485  ll
+  486  systemctl restart elasticsearch
+  487  curl -X GET "http://localhost:9200/product_en?pretty"
+  488  cd ..
+  489  cd ..
+  490  ll
+  491  pwd
+  492  ll
+  493  cd nodes
+  494  ll
+  495  cd 0
+  496  ll
+  497  cd ..
+  498  cd ..
+  499  ll
+  500  owd
+  501  pwd
+  502  cd nodes
+  503  ll
+  504  curl -X GET "http://localhost:9200/product_en?pretty"
+  505  ll
+  506  mv 0 oldelastic
+  507  ll
+  508  systemctl stop elasticsearch
+  509  systemctl start elasticsearch
+  510  ll
+  511  curl -X GET "http://localhost:9200/product_en?pretty"
+  512  curl -X PUT "http://localhost:9200/product_en?pretty"
+  513  curl -X GET "http://localhost:9200/product_en?pretty"
+  514  curl -X PUT "http://localhost:9200/product_en/_mapping" -H 'accept: application/json' -H 'cache-control: no-cache' -H 'content-type: application/json' -d '{
+  515  "properties": {
+  516  "name": {
+  517  "type": "text"
+  518  },
+  519  "sku": {
+  520  "type": "keyword"
+  521  },
+  522  "store": {
+  523  "type": "keyword"
+  524  },
+  525  "lang": {
+  526  "type": "keyword"
+  527  },
+  528  "categories": {
+  529  "type": "keyword"
+  530  },
+  531  "manufacturer": {
+  532  "type": "keyword"
+  533  },
+  534  "description": {
+  535  "type": "text"
+  536  },
+  537  "tags": {
+  538  "type": "keyword"
+  539  },
+  540  "price": {
+  541  "type": "float"
+  542  }
+  543  }
+  544  }'
+  545  curl -X GET "http://localhost:9200/product_en?pretty"
+  546  pwd
+  547  ll
+  548  free -tm
+  549  yum install msmtp
+  550  yum install ca-certificates
+  551  vi /etc/msmtprc
+  552  cd /etc/msmtprc
+  553  vi /etc/msmtprc
+  554  vi /etc/msmtprc
+  555  echo "Hello this is sending email using msmtp" | msmtp krsingh081206@gmail.com
+  556  vi /etc/msmtprc
+  557  echo "Hello this is sending email using msmtp" | msmtp krsingh081206@gmail.com
+  558  vi /etc/msmtprc
+  559  cd /etc
+  560  ll
+  561  vi msmtprc 
+  562  echo "Hello this is sending email using msmtp" | msmtp krsingh081206@gmail.com
+  563  cd /opt/ecommerce/
+  564  ll
+  565  cd shopizer/
+  566  ll
+  567  cd sm-core
+  568  ll
+  569  cd src
+  570  ll
+  571  cd main
+  572  ll
+  573  cd resources/
+  574  ll
+  575  vi email.properties 
+  576  pwd
+  577  ll
+  578  cd ..
+  579  cd ..
+  580  ll
+  581  cd ..
+  582  ll
+  583  cd ..
+  584  ll
+  585  cd sm-shop
+  586  ll
+  587  :>shopizer.log
+  588  tail -f shopizer.log
+  589  cd /opt/ecommerce/
+  590  cd shopizer/
+  591  ll
+  592  ps -eaf | grep java
+  593  mvnw clean install -DskipTests=true
+  594  mvn clean install -DskipTests=true
+  595  exit
+  596  cd /opt/ecommerce/shopizer/
+  597  ll
+  598  cd sm-shop
+  599  ll
+  600  cd src/main/
+  601  ll
+  602  cd resources/
+  603  ll
+  604  cp application.properties application.properties.bkp.16.Jan.2021
+  605  vi application.properties
+  606  cd ..
+  607  ll
+  608  cd ..
+  609  ll
+  610  cd ..
+  611  ll
+  612  :>shopizer.log.1
+  613  :>shopizer.log
+  614  ll
+  615  mvn spring-boot:run
+  616  ll
+  617  cd src/main/resources/
+  618  ll
+  619  vi application.properties
+  620  cd ..
+  621  cd ..
+  622  cd ..
+  623  ll
+  624  mvn spring-boot:run
+  625  ps -eaf | grep java
+  626  kill -9 1449 1442
+  627  ps -eaf | grep java
+  628  cd /opt/ecommerce/
+  629  ll
+  630  cd shopizer
+  631  ll
+  632  git status
+  633  cd /root
+  634  ll
+  635  mkdir jantashop
+  636  pwd
+  637  cd /opt/ecommerce/shopizer/
+  638  ll
+  639  git status
+  640  cp sm-core/src/main/resources/email.properties /root/jantashop/
+  641  cp sm-core/src/main/resources/shopizer-core.properties /root/jantashop/
+  642  cp sm-shop/files/store/StoreRepository.dat /root/jantashop/
+  643  cp sm-shop/src/main/resources/application.properties /root/jantashop/
+  644  cp sm-shop/src/main/resources/application.yml /root/jantashop/
+  645  cp sm-shop/src/main/webapp/pages/shop/common/merchant/contactus.jsp /root/jantashop/
+  646  cp sm-shop/src/main/webapp/pages/shop/templates/december/pages/checkout.jsp /root/jantashop/
+  647  cd /root/jantashop/
+  648  vi modfiles
+  649  cd /opt/ecommerce/
+  650  ll
+  651  cd shopizer/
+  652  ll
+  653  git status
+  654  git pull
+  655  git checkout sm-shop/src/main/webapp/pages/shop/templates/december/pages/checkout.jsp
+  656  git pull
+  657  vi sm-shop/src/main/webapp/pages/shop/common/merchant/contactus.jsp
+  658  vi sm-shop/src/main/webapp/pages/shop/templates/december/pages/checkout.jsp
+  659  cd sm-shop
+  660  ll
+  661  tail -f shopizer.log
+  662  ll
+  663  vi shopizer.log
+  664  cd /opt/ecommerce/shopizer/sm-shop
+  665  ll
+  666  git status
+  667  cd src/main/webapp/pages/shop
+  668  ll
+  669  cd templates/
+  670  cd december/
+  671  ll
+  672  cd pages/
+  673  ll
+  674  cp checkout.jsp checkout.jsp.bkp.26.Jan.2021
+  675  vi checkout.jsp
+  676  cd /opt/ecommerce/shopizer/sm-shop
+  677  ll
+  678  ps -eaf | grep java
+  679  kill -9 1501 1493
+  680  ps -eaf | grep java
+  681  ll
+  682  mvn spring-boot:run
+  683  EXIT
+  684  exit
+  685  ll
+  686  cd /opt/ecommerce/
+  687  ll
+  688  cd shopizer/
+  689  ll
+  690  cd sm-shop
+  691  ll
+  692  cd src/main/resources/js
+  693  cd src/main/resources/js
+  694  cd src/main/webapp/resources/
+  695  ll
+  696  cd js
+  697  ll
+  698  vi jquery.prefix-input.js
+  699  cd ..
+  700  cd ..
+  701  ll
+  702  cd pages/
+  703  ll
+  704  cd shop/templates/
+  705  ll
+  706  cd december/
+  707  ll
+  708  cd pages
+  709  ll
+  710  vi checkout.jsp
+  711  vi checkout.jsp
+  712  vi checkout.jsp
+  713  ps -eaf | grep java
+  714  kill -9 1514 1507
+  715  pwd
+  716  cd ..
+  717  cd ..
+  718  cd ..
+  719  cd ..
+  720  cd ..
+  721  cd ..
+  722  cd ..
+  723  cd ..
+  724  cd ..
+  725  ll
+  726  pwd
+  727  ll
+  728  mvn clean install -DskipTests=true
+  729  cd sm-shop
+  730  mvn spring-boot:run
+  731  exit
+  732  cd /opt/ecommerce/
+  733  cd shopizer/sm-shop
+  734  ll
+  735  cd src/main/
+  736  ll
+  737  cd webapp/
+  738  ll
+  739  cd resources/
+  740  ll
+  741  cd js
+  742  ll
+  743  vi jquery.prefix-input.js
+  744  cd ..
+  745  cd ..
+  746  ps -eaf | grep java
+  747  kill -9 1519 1512
+  748  ps -eaf | grep java
+  749  cd ..
+  750  cd ..
+  751  cd ..
+  752  ll
+  753  pwd
+  754  ps -eaf  | grep java
+  755  mvn spring-boot:run
+  756  cd /opt/ecommerce/shopizer/sm-shop/
+  757  ll
+  758  cd src/
+  759  ll
+  760  pwd
+  761  ll
+  762  cd main/webapp/pages
+  763  ll
+  764  cd shop/templates/
+  765  cd december/
+  766  ll
+  767  cd pages
+  768  ll
+  769  vi checkout.jsp
+  770  ps -eaf | grep java
+  771  pwd
+  772  cd /opt/ecommerce/
+  773  ll
+  774  cd shopizer/
+  775  ll
+  776  git status
+  777  git checkout sm-shop/src/main/webapp/pages/shop/templates/december/pages/checkout.jsp
+  778  git pull
+  779  rm -rf sm-shop/src/main/webapp/resources/js/jquery.prefix-input.js
+  780  git pull
+  781  ll
+  782  mvn clean install -DskipTests=true
+  783  cd sm-shop
+  784  ll
+  785  :>shopizer.log
+  786  mvn spring-boot:run
+  787  exit
+  788  cd /etc/nginx
+  789  ll
+  790  vim diff nginx.conf nginx.conf.bkp.15.Dec.2020
+  791  vimdiff nginx.conf nginx.conf.bkp.15.Dec.2020
+  792  vimdiff nginx.conf nginx.conf.bkp.15.Dec.2020
+  793  vi nginx.conf.bkp.15.Dec.2020
+  794  vi nginx.conf
+  795  vi nginx.conf
+  796  vi nginx.conf.bkp.15.Dec.2020
+  797  systemctl reload nginx
+  798  systemctl reload nginx.service
+  799  systemctl status nginx.service
+  800  systemctl stop nginx
+  801  systemctl start nginx
+  802  journalctl -xe
+  803  ll
+  804  vi nginx.conf
+  805  cd /etc/nginx
+  806  ll
+  807  cp nginx.conf nginx.conf.bkp.06.Feb.2021
+  808  vi nginx.conf.bkp.5.July
+  809  vi nginx.conf.default.http
+  810  cp nginx.conf.default.http nginx.conf
+  811  vi nginx.conf
+  812  nginx -t
+  813  nginx -t
+  814  vi nginx.conf
+  815  cd /etc/nginx
+  816  ll
+  817  sudo certbot --nginx -d jantameat.com -d www.jantameat.com
+  818  vimdiff nginx.conf nginx.conf.bkp.06.Feb.2021
+  819  vi nginx.conf
+  820  systemctl restart nginx
+  821  exit
+  822  cd /opt/ecommerce/
+  823  cd shopizer/
+  824  ll
+  825  git status
+  826  cd sm-shop
+  827  git pull
+  828  ps -eaf | grep java
+  829  kill -9 1508 1501
+  830  cd ..
+  831  ll
+  832  mvn clean install -DskipTests=true
+  833  cd sm-shop
+  834  ll
+  835  mvn spring-boot:run
+  836  c /opt/ecommerce/
+  837  cd /opt/ecommerce/shopizer/
+  838  ll
+  839  grep -Rin "bhopalmeats.tk"
+  840  exit
+  841  ps -eaf | grep nginx
+  842  ps -eaf | grep java
+  843  ps -eaf | grep mysql
+  844  ps -eaf | grep nginx
+  845  cd /var/log/
+  846  ll
+  847  cd nginx/
+  848  ll
+  849  date
+  850  vi error.log
+  851  netstat -ltnp | grep -w ':80'
+  852  netstat -ltnp | grep -w ':443'
+  853  netstat -ltnp | grep -w ':8080'
+  854  systemctl start nginx
+  855  netstat -ltnp | grep -w ':80'
+  856  free -tm
+  857  ll
+  858  date
+  859  tail -f access.log
+  860  ll
+  861  :>access.log
+  862  free -tm
+  863  free -tm
+  864  top
+  865  cd /opt/ecommerce/shopizer/sm-shop
+  866  git stauts
+  867  git status
+  868  git pull
+  869  ps -eaf | grep java
+  870  kill -9 1507 1500
+  871  cd ..
+  872  mvn clean install -DskipTests=true
+  873  cd sm-shop
+  874  mvn spring-boot:run
+  875  cd /opt/ecommerce/shopizer/
+  876  ll
+  877  cd sm-shop
+  878  ll
+  879  cd src/main/java/com/salesmanager/shop/store/
+  880  ll
+  881  cd controller/o
+  882  cd controller/order
+  883  ll
+  884  vi ShoppingOrderConfirmationController.java
+  885  vi ShoppingOrderController.java
+  886  cd ..
+  887  cd ..
+  888  cd ..
+  889  cd ..
+  890  cd ..
+  891  cd ..
+  892  cd ..
+  893  ll
+  894  cd resources/
+  895  ll
+  896  git status
+  897  vi application.properties
+  898  vi application.yml
+  899  vi application.properties
+  900  vi application.yml
+  901  pwd
+  902  cd ..
+  903  cd ..
+  904  cd ..
+  905  ll
+  906  pwd
+  907  mvn spring-boot:run
+  908  cd ..
+  909  mvn clean install -DskipTests=true
+  910  cd sm-shop
+  911  mvn spring-boot:run
+  912  exit
+  913  cd /opt/ecommerce/
+  914  cd shopizer/
+  915  cd sm-shop
+  916  ll
+  917  cd src
+  918  ll
+  919  cd main/resources/
+  920  ll
+  921  cd spring/
+  922  ll
+  923  cp shopizer-servlet-context.xml shopizer-servlet-context.xml.bkp.16.Feb.2021
+  924  vi shopizer-servlet-context.xml
+  925  ps -eaf | grep java
+  926  kill -9 1451 1444
+  927  mvn clean install -DskipTests=true
+  928  cd ..
+  929  cd ..
+  930  cd ..
+  931  cd ..
+  932  cd ..
+  933  ll
+  934  mvn clean install -DskipTests=true
+  935  cd sm-shop
+  936  mvn spring-boot:run
+  937  ll
+  938  cd src
+  939  ll
+  940  cd main
+  941  cd java
+  942  cd com/salesmanager/shop/
+  943  cd store/
+  944  ll
+  945  cd controller/order/
+  946  ll
+  947  vi ShoppingOrderController.java
+  948  cd ..
+  949  cd ..
+  950  cd ..
+  951  cd ...
+  952  cd ..
+  953  cd ..
+  954  cd ..
+  955  ll
+  956  cd ..
+  957  cd ..
+  958  cd ..
+  959  ll
+  960  cd ..
+  961  ll
+  962  mvn clean install -DskipTests=true
+  963  cd sm-shop
+  964  mvn spring-boot:run
+  965  nginx -v
+  966  nginx -V
+  967  cd /etc/nignx
+  968  cd /etc/nginx
+  969  ll
+  970  cp nginx.conf nginx.conf.bkp.18.Feb.2021
+  971  vi nginx.conf
+  972  vi nginx.conf
+  973  nginx -t
+  974  systemctl restart nginx
+  975  cd /etc/nginx
+  976  ll
+  977  vi nginx.conf
+  978  nginx -t
+  979  systemctl restart nginx
+  980  cd /var/log/
+  981  ll
+  982  cd nginx/
+  983  ll
+  984  vi access.log
+  985  :>access.log
+  986  tail -f access.log
+  987  exit
+  988  ps -eaf | grep nginx
+  989  cd /var/log/nginx
+  990  ll
+  991  vi error.log
+  992  netstat -ltnp | grep -w ':80'
+  993  netstat -ltnp | grep -w ':80'
+  994  systemctl start nginx
+  995  ll
+  996  ll
+  997  date
+  998  ll
+  999  ps -eaf | grep nginx
+ 1000  tail -f access.log
+ 1001  cd /opt/ecommerce/
+ 1002  ll
+ 1003  cd shopizer
+ 1004  ll
+ 1005  git  statua
+ 1006  git  status
+ 1007  cd sm-shop
+ 1008  git status
+ 1009  ll
+ 1010  history
+ 1011  pwd
+ 1012  ll
+ 1013  cd 4JAN_2021
+ 1014  LL
+ 1015  ll
+ 1016  mysqldump
+ 1017  mysqldump -ushopizer -pshopizer SALESMANAGER >WORKING_ECOMM_24may.sql
+ 1018  ll
+ 1019  mv WORKING_ECOMM_24may.sql /home/ec2-user/
+ 1020  cd ..
+ 1021  ll
+ 1022  rm -rf 4JAN_2021.tar.gz
+ 1023  cd 4JAN_2021/
+ 1024  ll
+ 1025  cd ..
+ 1026  ll
+ 1027  tar cvzf 4JAN_2021 4JAN_2021
+ 1028  tar cvzf 4JAN_2021
+ 1029  tar cvzf 4JAN_2021 4JAN_2021/
+ 1030  pwd
+ 1031  cd ..
+ 1032  ll
+ 1033  cd sm-shop
+ 1034  ll
+ 1035  cd src
+ 1036  ll
+ 1037  cd ..
+ 1038  ll
+ 1039  cd files/
+ 1040  ll
+ 1041  cd store
+ 1042  ll
+ 1043  cd ..
+ 1044  cd repos/
+ 1045  ll
+ 1046  cd ..
+ 1047  cd ..
+ 1048  git checckout -b 24_MAY_WIP
+ 1049  git checkout -b 24_MAY_WIP
+ 1050  pwd
+ 1051  pwd
+ 1052  ll
+ 1053  pwd
+ 1054  ll
+ 1055  cp /home/ec2-user/WORKING_ECOMM_24may.sql .
+ 1056  ll
+ 1057  cd /var/lib/elasticsearch/
+ 1058  ll
+ 1059  cd nodes
+ 1060  ll
+ 1061  cd 0
+ 1062  ll
+ 1063  cd indices/
+ 1064  ll
+ 1065  cd ..
+ 1066  cd ..
+ 1067  cd ..
+ 1068  cd ..
+ 1069  cd /opt/ecommerce/shopizer/sm-shop
+ 1070  history >history_cmds.txt
